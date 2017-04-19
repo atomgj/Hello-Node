@@ -1,0 +1,5 @@
+#!/usr/local/bin/node
+
+var path = require('path');
+var dir = path.join('///1','\2','///3','//////4');
+console.log(dir);

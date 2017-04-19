@@ -1,0 +1,6 @@
+#!/usr/local/bin/node
+var fs = require('fs');
+fs.writeFile('fs','hello world', function(err){
+	if(err) throw err;
+	console.log('save success!');
+})

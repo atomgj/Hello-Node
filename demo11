@@ -1,0 +1,6 @@
+#!/usr/local/bin/node
+var fs = require('fs');
+fs.readdir('/usr/local/projects' ,function(err,data){
+	if(err) throw err;
+	console.log(data);
+})

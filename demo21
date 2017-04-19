@@ -1,0 +1,5 @@
+#!/usr/bin/node
+var qs = require('querystring');
+var s = qs.parse('get=1&sd=2&add=asdfas');
+console.log(s);
+

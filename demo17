@@ -1,0 +1,5 @@
+#!/usr/local/bin/node
+
+var path= require('path');
+var s = path.dirname('/usr/local/projects/rearch');
+console.log(s);

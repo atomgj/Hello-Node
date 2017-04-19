@@ -1,0 +1,7 @@
+#!/usr/local/bin/node
+
+var cp = require('child_process');
+var child = cp.spawn('ll');
+child.stdout.on('data', function(data){
+	console.log(data);
+});

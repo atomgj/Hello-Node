@@ -1,0 +1,6 @@
+#!/usr/local/bin/node
+
+var fs = require('fs');
+fs.exists('fs', function(exist){
+	console.log(exist?'yes':'no');
+})
