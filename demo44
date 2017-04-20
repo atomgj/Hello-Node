@@ -1,0 +1,21 @@
+#!/usr/local/bin/node
+
+var mongoose = require('mongoose');
+
+var db = mongoose.connect("mongodb://127.0.0.1:27017/test");
+
+var mongoose = require('mongoose');
+
+var schema = new mongoose.Schema;
+schema.add({ name: 'String', email: 'String', age: 'Number' });
+
+schema.static('findByName', function(name,callback){
+	return this.find({name:name}, callback);
+});
+
+var model = db.model('test1', schema);
+
+model.findByName('tom', function(err, doc){
+	console.log(err);
+	console.log(doc);
+})
