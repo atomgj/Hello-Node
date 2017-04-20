@@ -41,3 +41,4 @@ var result = util.inspect({ asan: 0,
         xcode_version: '7.0' });
 console.log(typeof result);
 console.log(result);
+
