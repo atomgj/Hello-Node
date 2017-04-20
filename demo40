@@ -13,11 +13,16 @@ var model = db.model("test1", schema );
 
 
 
-model.findOne({name:'test1'},function(e,d){
-	console.log(d);
-})
 
 
-model.findById('58f864e1eb834c9800f39b11', function (err, doc){
-  console.log(doc);
-});	
+model.find({"age":{"$gt":18}},function(error,docs){
+   //查询所有nage大于18的数据
+});
+ 
+model.find({"age":{"$lt":60}},function(error,docs){
+   //查询所有nage小于60的数据
+});
+ 
+model.find({"age":{"$gte":18,"$lt":60}},function(error,docs){
+   //查询所有nage大于等18小于60的数据
+});
