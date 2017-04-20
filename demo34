@@ -1,7 +1,7 @@
 #!/usr/local/bin/node
 
+var mongoose = require('mongoose');
 
-var mongoose = require("mongoose");
 var db = mongoose.connect("mongodb://127.0.0.1:27017/test");
 var TestSchema = new mongoose.Schema({
     name : { type:String },
@@ -10,13 +10,22 @@ var TestSchema = new mongoose.Schema({
     time : { type:Date, default:Date.now }
 });
 var TestModel = db.model("test1", TestSchema );
+var TestEntity = new TestModel({
+    name : "jerry", 
+    age  : 28, 
+    email: "jerry@qq.com"
+});
+TestEntity.save(function(error,doc) {
+   console.log(doc);
+});
 
 
-TestModel.create({name:"lgj", age:30}, function(err, docs){
-	console.log(docs);
-})
+var entity1 = new TestModel({
+	name:'lgj',
+	age:10,
+	email:'a@A'
+});
 
-TestModel.find({},function(error,  docs){
-	console.log("@@@@@@@@@");
-	console.log(docs);
+entity1.save(function(err, doc){
+	console.log(doc)
 })
