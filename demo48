@@ -1,0 +1,27 @@
+#!/usr/local/bin/node
+
+
+var express = require('express');
+var mongoose = require('mongoose');
+var MongoStore = require('connect-mongo/es5')(session);
+var session = require('express-session');
+
+var app = express();
+var db = mongoose.connect('mongodb://127.0.0.1:27017/sessionStorage');
+db.connection.on('open', function(err, docs){
+	console.log('db connected!');
+});
+
+app.use(session({
+	secret : "the first example of session storage! ",
+	cookie : {
+		maxAge : 60*1000*30
+	},
+	resave : true,
+	saveUninitialized : true,
+	store : new MongoStore({
+		mongooseConnection: mongoose.connection
+	})
+}));
+
+app.listen(9999);
