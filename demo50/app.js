@@ -22,9 +22,9 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extends: true}));
 
-require('./routes')(app);
+require('./routes/index')(app);
+
 app.get('/', function(req, res){
-	console.log(req.body);
 	res.render('login');
 });
 
