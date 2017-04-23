@@ -1,0 +1,27 @@
+#!/usr/local/bin/node
+
+var express = require('express');
+var app = express();
+
+
+app.use(function(request,response,next){
+	if(request.url == "/"){
+		response.send("welcome to homepage!")
+	}else{
+		next();
+	}
+})
+
+app.use(function(request,response, next){
+	if(request.url == "/about"){
+		response.send("welcome to about page!")
+	}else{
+		next();
+	}
+})
+
+app.use(function(request,response){
+	response.send("404 not fount");
+})
+
+app.listen(9999)

@@ -1,0 +1,17 @@
+#! /usr/local/bin/node
+
+var express = require('express');
+var app = express();
+
+app.use(function(request, response, next){
+	console.log("method:" + request.method+ "===url"+ request.url);
+	next();
+})
+
+app.use(function(request, response){
+	response.writeHead(200, {"Content-Type":"text/html;chartset = utf-8"});
+	response.end('example: use 2 middleware');
+})
+
+app.listen(9999);
+

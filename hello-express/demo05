@@ -1,0 +1,14 @@
+#!/usr/local/bin/node
+
+var express = require('express')
+var app = express();
+
+
+app.get('*', function(request, response){
+	console.log(request)
+	console.log(response)
+
+	response.send("request.host get success");
+})
+
+app.listen(9999)

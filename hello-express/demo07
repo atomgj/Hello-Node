@@ -1,0 +1,14 @@
+#!/usr/local/bin/node
+
+var express = require('express')
+var app = express()
+
+app.get("/", function(request, response){
+	response.send(request.params)
+})
+
+app.get("/user/:name/", function(e,p){
+	p.send(e.params);	
+})
+
+app.listen(9999)

@@ -1,0 +1,11 @@
+#!/usr/local/bin/node
+
+var express = require('express')
+var app  = express()
+
+app.get('*',function(request, response){
+	console.log(request.query);
+	response.send(request.query);
+})
+
+app.listen(9999)

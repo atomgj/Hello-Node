@@ -1,0 +1,11 @@
+#!/usr/local/bin/node
+
+var express = require('express')
+
+var app = express()
+
+app.use("*", function(e,p){
+	p.sendStatus(404)
+})
+
+app.listen(9999)
