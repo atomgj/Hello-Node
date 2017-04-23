@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({extends: true}));
 require('./routes')(app);
 app.get('/', function(req, res){
 	console.log(req.body);
-	res.render('register');
+	res.render('login');
 });
 
 app.listen(3000);

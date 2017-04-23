@@ -1,4 +1,5 @@
-var register;
+var register,
+	login;
 
 
 register = function(){
@@ -18,6 +19,25 @@ register = function(){
 		},
 		error: function(data, status){
 			location.href = 'login';
+		}
+	});
+};
+
+login = function(){
+	var data = {};
+	data.username = $('#username').val();
+	data.password = $('#password').val();
+
+	$.ajax({
+		url: '/login',
+		type: 'POST',
+		data: data,
+		success: function(data, status){
+			if(status == 'success'){
+				login.href = 'index';
+			}
+		},error: function(data, status){
+			location.href='login';
 		}
 	});
 };
