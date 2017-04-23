@@ -1,0 +1,7 @@
+#!/usr/local/bin/node
+
+var url = require('url');
+var n = url.resolve('http://baidu.com/a', 'b');
+var b = url.resolve(n,'c');
+console.log(n);
+console.log(b);

@@ -1,0 +1,8 @@
+#!/usr/local/bin/node
+var url = require('url');
+
+var p = url.parse('http://www.baidu.com');
+console.log(p);
+
+var p1 = url.parse('http://beta.moojnn.com/board.html/board/6657808?p=6657807',true);
+console.log(p1);

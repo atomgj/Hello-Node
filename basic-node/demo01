@@ -1,0 +1,9 @@
+#!/usr/local/bin/node
+
+var os = require('os')
+var result = os.platform();
+console.log(os.release());
+console.log(os.type());
+console.log(os.arch());
+console.log(result);
+

@@ -1,0 +1,9 @@
+#!/usr/local/bin/node
+
+var ul = require('util');
+var r1 = ul.isArray([]);
+var r2 = ul.isDate(new Date());
+var r3 = ul.isRegExp(/^123/);
+console.log(r1);
+console.log(r2);
+console.log(r3);

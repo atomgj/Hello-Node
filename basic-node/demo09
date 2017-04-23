@@ -1,0 +1,6 @@
+#!/usr/local/bin/node	
+var fs = require('fs')
+fs.mkdir('dir',0777,function(err){
+	if(err) throw err;
+	console.log('mkdir success!');
+})
