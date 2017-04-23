@@ -1,7 +1,0 @@
-#!/usr/bin/node
-var path = require('path')
-var data1 = path.extname('/usr/local/readme.txt');
-var data2 = path.extname('/usr/local/readme');
-console.log(data1);
-console.log(data2);
- 

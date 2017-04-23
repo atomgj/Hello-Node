@@ -1,6 +1,0 @@
-#!/usr/local/bin/node
-var fs = require('fs');
-fs.unlink('newfs',function(err){
-	if(err) throw err;
-	console.log('unlink success!');
-})

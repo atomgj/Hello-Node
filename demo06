@@ -1,8 +1,0 @@
-#!/usr/local/bin/node
-var fs = require('fs');
-
-fs.rename('fs','newfs', function(err){
-	if(err) throw err;
-	console.log('rename success!');
-})
-

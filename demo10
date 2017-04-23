@@ -1,8 +1,0 @@
-#!/usr/local/bin/node	
-var fs = require('fs')
-fs.rmdir('dir', function(err){
-	if(err) throw err;
-	console.log('remove dir success!');
-
-});
-

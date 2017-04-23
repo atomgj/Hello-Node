@@ -1,5 +1,0 @@
-#!/usr/bin/node
-
-var qs = require('querystring');
-var result = qs.stringify({foo:'bar',name:'gj',age:1});
-console.log(result);

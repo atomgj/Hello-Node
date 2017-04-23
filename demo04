@@ -1,6 +1,0 @@
-#!/usr/local/bin/node
-var fs = require('fs');
-fs.appendFile('fs', ' new line', function(err){
-	if(err) throw err;
-	console.log('add new line!');
-});

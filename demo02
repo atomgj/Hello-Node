@@ -1,4 +1,0 @@
-#!/usr/local/bin/node
-var print = function(d){
- process.stdout.write(d+'\n');
-}

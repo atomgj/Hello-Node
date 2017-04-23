@@ -1,4 +1,0 @@
-#!/usr/local/bin/node
-var path= require('path');
-var pa = path.normalize('/usr////dsfa/ads\asdf');
-console.log(pa);
