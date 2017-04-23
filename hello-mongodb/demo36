@@ -1,0 +1,22 @@
+#!/usr/local/bin/node
+
+var mongoose = require('mongoose');
+
+var db = mongoose.connect("mongodb://127.0.0.1:27017/test");
+var schema = new mongoose.Schema({
+    name : { type:String },
+    age  : { type:Number, default:0 },
+    email: { type:String },
+    time : { type:Date, default:Date.now }
+});
+var model = db.model("test1", schema );
+
+var condition = {name:'helloworld'};
+
+model.remove(condition, function(er, doc){
+
+	console.log(doc);
+	model.find({},function(e,d){
+		console.log(d)
+	})
+})

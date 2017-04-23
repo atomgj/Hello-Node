@@ -1,0 +1,25 @@
+#!/usr/local/bin/node
+
+var mongoose = require('mongoose');
+
+var db = mongoose.connect("mongodb://127.0.0.1:27017/test");
+
+var mongoose = require('mongoose');
+
+var schema = new mongoose.Schema;
+schema.add({ name: 'String', email: 'String', age: 'Number' });
+
+schema.methods.speak = function(){
+	console.log('speak my name '+ this.name);
+}
+
+
+
+var model = db.model('test1', schema);
+
+
+var entity = new model({name: 'lgj'});
+
+
+entity.speak();
+

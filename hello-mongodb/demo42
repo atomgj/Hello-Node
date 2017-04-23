@@ -1,0 +1,16 @@
+#!/usr/local/bin/node
+
+var mongoose = require('mongoose');
+
+var db = mongoose.connect("mongodb://127.0.0.1:27017/test");
+
+var mongoose = require('mongoose');
+
+var TempSchema = new mongoose.Schema;
+console.log(TempSchema); 
+TempSchema.add({ name: 'String', email: 'String', age: 'Number' });
+
+
+console.log('11111111111')
+
+console.log(TempSchema)
