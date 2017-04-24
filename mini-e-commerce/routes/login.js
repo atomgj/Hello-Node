@@ -10,10 +10,13 @@ module.exports = function(app){
 				body = req.body;
 		User.findOne({name: body.username}, function(err, doc){
 			if(doc){
-					console.log('login success');
-					res.sendStatus(200);
-			}else{		
-				 res.sendStatus(500);		
+				req.session.user = doc;
+				console.log(req.session);
+				console.log('login success');
+				res.sendStatus(200);
+			}else{	
+				req.session.error = '用户未登录';	
+				res.sendStatus(500);		
 			}
 		});
 	});

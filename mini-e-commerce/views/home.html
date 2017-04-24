@@ -1,0 +1,28 @@
+<link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+
+
+<div>
+<ul>
+<%for(var i in Commoditys){if(!Commoditys[i].name)continue;%>
+	<li>
+		<div>
+			<img width="80" height="80" src="<%=Commoditys[i].imgSrc%>">
+			<a><%=Commoditys[i].name%></a>
+			<span><%=Commoditys[i].price%></span>
+		<div>
+		<div>
+			<a class="btn  btn-success" href="">加入购物车</a>
+		</div>
+	</li>
+<%}%>
+</ul>
+<div>
+	<a href="./addcommodity">添加商品</a>
+</div>
+</div>
+
+
+
+<script src="/javascripts/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="/javascripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="/javascripts/main.js"></script>

@@ -1,4 +1,4 @@
-var register,login;
+var register,login,addcommodity;
 
 register = function(){
 	var data  = {};
@@ -32,11 +32,30 @@ login = function(){
 		data: data,
 		success: function(data, status){
 			if(status == 'success'){
-				//login.href = 'index';
+				location.href = 'home';
 			}
 		},
 		error: function(data, status){
-			//location.href='login';
+			location.href='login';
+		}
+	});
+};
+
+
+addcommodity = function(){
+	var data = {};
+	data.name = $('#name').val();
+	data.price = $('#price').val();
+
+	$.ajax({
+		url: 'addcommodity',
+		type: 'POST',
+		data: data,
+		success: function(data, status){
+			location.href='home';
+		},
+		error: function(data, status){
+			location.href='addcommodity';
 		}
 	});
 };
