@@ -1,7 +1,7 @@
 #!/usr/local/bin/node
 var fw = require('./file')(require('fs'));
 var header = require('./header')["学生信息表"];
-var names = require('./names')["姓名"];
+var names = require('./names')["学生"];
 var pcity = require('./province');
 var file = '学生信息表.txt';
 
