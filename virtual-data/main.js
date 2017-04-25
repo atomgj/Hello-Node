@@ -1,2 +1,3 @@
-require('./grade')();
-console.log(global.student);
+require('./student')();
+require('./course')();
+console.log('done');
