@@ -14,10 +14,13 @@ module.exports = function(){
 
   require('./kecheng');
   global.teacher = {};
-  var i;
+  var i, kas;
   
-  km = require('./kas')();
-  for(i = 0; i < 39; i++){
+  var km = require('./km');
+  var yx = require('./yx');
+  
+  kas = require('./kas')();
+  for(i = 0; i < 38; i++){
     var line = [];
     line.push(2010000 + i); //学号
     line.push(names[i]);   //姓名
@@ -27,8 +30,7 @@ module.exports = function(){
     var city = pcity[parseInt(Math.random() * 251, 10)];
     line.push(city[0]);
     line.push(city[1]);
-    
-    var yxk = require('./method')(km[i]);
+    var yxk = require('./method')(km, yx, kas[i]);
     line.push(yxk[0]);
     line.push(yxk[1]);
     line.push(yxk[2]);

@@ -1,22 +1,18 @@
-module.exports = function(k){
+module.exports = function(km, yx, k){
   
   
-    var km = require('./km');
-    var yx = require('./yx');
-    var i, zy = "", yx = "";
+    var i, j, zhuanye = "", yuan = "";
     for(i in km){
       if(km[i].indexOf(k) > -1){
-        zy = i;
+        zhuanye = i;
+      }
+    }
+    for(j in yx){
+      console.log(yx[j])
+      if(yx[j].indexOf(zhuanye) > -1){
+        yuan = j;
       }
     }
     
-    
-    for(i in yx){
-      console.log(i);
-      if(yx[i].indexOf(zy) > -1){
-        yx = i;
-      }
-    }
-    
-    return [yx,zy,k];
+    return [yuan,zhuanye,k];
 }
