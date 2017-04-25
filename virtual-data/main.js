@@ -1,4 +1,12 @@
 require('./student')();
 require('./course')();
 require('./teacher')();
+//require('./internet')();
+//require('./concat')();
+//require('./onecard')();
+//require('./club')();
+//require('./guihua')();
+//require('./jijian')();
+require('./chuqin')();
+require('./duty')();
 console.log('done');

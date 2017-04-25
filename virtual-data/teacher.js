@@ -7,7 +7,7 @@ var file = '教师信息表.txt';
 
 module.exports = function(){
   
-  //fw.unlink(file);
+  fw.unlink(file);
   fw.write(file);
 
   fw.append(file, header.join(','));
@@ -45,7 +45,6 @@ module.exports = function(){
     fw.append(file, line.join(','));
     global.teacher[line[0]] = line;
   }
-
 };
 
 

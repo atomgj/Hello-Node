@@ -23,5 +23,12 @@ module.exports = function(fs){
         
       });
   };
+  fw.close = function(fileName){
+      fs.close(fileName, function(err){
+        if(err){
+            throw err;
+        }
+      });
+  };
   return fw;
 }

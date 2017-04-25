@@ -7,13 +7,13 @@ var file = '学生信息表.txt';
 
 module.exports = function(){
   
-  //fw.unlink(file);
+  fw.unlink(file);
   fw.write(file);
 
   fw.append(file, header.join(','));
 
   global.student = {};
-  for(var i = 0; i < 413; i++){
+  for(var i = 0; i < 100; i++){
     
     
     var year = parseInt(Math.random() * 2, 10);
@@ -59,7 +59,6 @@ module.exports = function(){
     
     global.student[line[0]] = line;
   }
-
 };
 
 
