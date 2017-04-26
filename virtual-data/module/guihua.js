@@ -1,8 +1,5 @@
 #!/usr/local/bin/node
-
-
 module.exports = function(fw, data, mtd){
-  
   var file = '学科规划表.txt';
   var header = data["表头"]["学科规划表"];
   var kas = mtd._getAllKeCheng();

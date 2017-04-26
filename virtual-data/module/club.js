@@ -1,8 +1,7 @@
 #!/usr/local/bin/node
 module.exports = function(fw, data, mtd){
-  
-  var header = data["表头"]["学生通讯表"];
-  var file = '学生通讯表.txt';
+  var file = '学生社团表.txt';
+  var header = data["表头"]["学生社团表"];
   fw.write(file);
   fw.append(file, header.join(','));
   var student = global.student;
@@ -13,12 +12,13 @@ module.exports = function(fw, data, mtd){
       var line = [];
       line.push(i);
       line.push(student[i][1]);
-      line.push(['2011', '2012'][parseInt(Math.random() * 2, 10)]+'-'+(['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'][parseInt(Math.random() * 12, 10)])+'-'+parseInt(Math.random() * 30, 10));
-      line.push(parseInt(Math.random() * 59, 10));
+      line.push(['理论学习','社会公益','学术科技','文化艺术','体育健身','其他'][parseInt(Math.random() * 6, 10)]);
+      line.push(['外国语系','体育系','电子系'][parseInt(Math.random() * 3, 10)]);
+      line.push(parseInt(Math.random() * 10, 10));
+      line.push(parseInt(Math.random() * 8, 10));
       str += line.join(',')+'\n';
     }
   }
-
   fw.append(file, str);
 };
 

@@ -1,7 +1,5 @@
 #!/usr/local/bin/node
-
 module.exports = function(fw, data, mtd){
-  
   var file = '学生一卡通.txt';
   var header = data["表头"]["学生一卡通"];
   fw.write(file);

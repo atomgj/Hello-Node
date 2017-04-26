@@ -1,5 +1,4 @@
 #!/usr/local/bin/node
-
 module.exports = function(fw, data, mtd){
   var file = '教师信息表.txt';
   var header = data["表头"]["教师信息表"];
