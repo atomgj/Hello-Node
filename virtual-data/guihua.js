@@ -14,7 +14,7 @@ module.exports = function(){
   fw.write(file);
 
   fw.append(file, header.join(','));
-
+var str = "";
   for(var j = 0; j < kas.length; j++){
     var line = [];
     line.push(kas[j]);
@@ -23,8 +23,10 @@ module.exports = function(){
     line.push(ys);
     line.push(ys-(parseInt(Math.random() * 20, 10)));
     line.push([20,24,12,15][parseInt(Math.random() * 4, 10)]);
-    fw.append(file, line.join(','));
+    
+    str += line.join(',')+'\n';
   }
+  fw.append(file, str);
 
 };
 

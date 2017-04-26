@@ -9,7 +9,7 @@ module.exports = function(){
   fw.write(file);
 
   fw.append(file, header.join(','));
-
+var str="";
     for(var i = 0; i < 10; i++){
       var line = [];
       line.push("ND-XSJL-0K1-"+(i+100));
@@ -21,9 +21,11 @@ module.exports = function(){
       line.push(parseInt(Math.random() * 1000000, 10));
       line.push(parseInt(Math.random() * 1000000, 10));
       line.push(['学生宿舍','教师宿舍','食堂','体育馆'][parseInt(Math.random() * 4, 10)]);
-      fw.append(file, line.join(','));
+    
+      str += line.join(',')+'\n';
     }
 
+  fw.append(file, str);
 };
 
 

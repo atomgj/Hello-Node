@@ -16,6 +16,7 @@ module.exports = function(){
   var yx = require('./yx');
   
   kas = require('./kas')();
+  var str = "";
   for(i in student){
     var idx = parseInt(Math.random() * 10, 10);
     var line = [];
@@ -28,10 +29,10 @@ module.exports = function(){
     
     line.push(['2011', '2012'][parseInt(Math.random() * 2, 10)]+'-'+['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'][parseInt(Math.random() * 12, 10)]);
     if(student[i][1]){
-      fw.append(file, line.join(','));
+      str += line.join(',')+'\n';
     }
   }
-
+  fw.append(file, str);
 };
 
 

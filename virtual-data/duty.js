@@ -15,7 +15,7 @@ module.exports = function(){
   require('./kecheng');
   var teacher = global.teacher;
   var i, kas;
-  
+  var str = "";
   var km = require('./km');
   var yx = require('./yx');
   
@@ -33,9 +33,10 @@ module.exports = function(){
     line.push(yk);  
     line.push(yk-[0,parseInt(Math.random() * 5, 10)][parseInt(Math.random() * 2, 10)]);  
     line.push(['大一','大二','大三','大四','研一','研二','研三'][parseInt(Math.random() * 7, 10)]);
-    fw.append(file, line.join(','));
+    str += line.join(',')+'\n';
     global.teacher[line[0]] = line;
   }
+  fw.append(file, str);
 };
 
 

@@ -12,6 +12,7 @@ module.exports = function(){
 
   var student = global.student;
   
+  var str = "";
   for(i in student){
     var time = parseInt(Math.random() * 10, 10);
     for(var j = 0; j < time; j++){
@@ -22,9 +23,10 @@ module.exports = function(){
       line.push(['外国语系','体育系','电子系'][parseInt(Math.random() * 3, 10)]);
       line.push(parseInt(Math.random() * 10, 10));
       line.push(parseInt(Math.random() * 8, 10));
-      fw.append(file, line.join(','));
+      str += line.join(',')+'\n';
     }
   }
+  fw.append(file, str);
 
 };
 

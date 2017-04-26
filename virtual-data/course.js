@@ -5,7 +5,7 @@ var file = '学生课程表.txt';
 
 module.exports = function(){
   
-  fw.unlink(file);
+  //fw.unlink(file);
   fw.write(file);
 
   fw.append(file, header.join(','));

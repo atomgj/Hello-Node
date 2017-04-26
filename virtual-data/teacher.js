@@ -7,7 +7,7 @@ var file = '教师信息表.txt';
 
 module.exports = function(){
   
-  fw.unlink(file);
+  //fw.unlink(file);
   fw.write(file);
 
   fw.append(file, header.join(','));
@@ -20,6 +20,7 @@ module.exports = function(){
   var yx = require('./yx');
   
   kas = require('./kas')();
+  var str = "";
   for(i = 0; i < 38; i++){
     var line = [];
     line.push(2010000 + i); //学号
@@ -42,9 +43,11 @@ module.exports = function(){
     line.push([0,1,4,5,6,10][idx*2]);
     line.push([13900000000,15200000000,18600000000,13800000000,18200000000][parseInt(Math.random() * 5, 10)]+parseInt(Math.random() * 10000000, 10));
 
-    fw.append(file, line.join(','));
+    str += line.join(',')+'\n';
     global.teacher[line[0]] = line;
   }
+  
+  fw.append(file, str);
 };
 
 
