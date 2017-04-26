@@ -1,11 +1,11 @@
 #!/usr/local/bin/node
-var fw = require('./file')(require('fs'));
-var header = require('./header')["教师排班表"];
-var names = require('./names')["教师"];
-var pcity = require('./province');
-var file = '教师排班表.txt';
 
-module.exports = function(){
+module.exports = function(fw, data, mtd){
+  
+  var file = '教师排班表.txt';
+  var header = data["表头"]["教师排班表"];
+  var names = data["姓名"]["教师"];
+  var pcity = data["省市"];
   
   //fw.unlink(file);
   fw.write(file);

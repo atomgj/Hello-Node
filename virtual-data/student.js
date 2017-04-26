@@ -1,36 +1,31 @@
 #!/usr/local/bin/node
-var fw = require('./file')(require('fs'));
-var header = require('./header')["学生信息表"];
-var names = require('./names')["学生"];
-var pcity = require('./province');
-var file = '学生信息表.txt';
 
-module.exports = function(){
+module.exports = function(fw, data, mtd){
+  var file = '学生信息表.txt';
+  var header = data["表头"]["学生信息表"];
+  var names = data["姓名"]["学生"];
+  var pcity = data["省市"];
   
-  //fw.unlink(file);
   fw.write(file);
-
   fw.append(file, header.join(','));
 
   global.student = {};
   var str = "";
   for(var i = 0; i < 400; i++){
-    
-    
     var year = parseInt(Math.random() * 2, 10);
     var ruxue = ['2007','2008','2009','2010','2011','2012'][year];
-    
     var line = [];
+    
     line.push(parseInt(ruxue+"0000000",10)+1318000 + i); //学号
     line.push(names[i]);   //姓名
     line.push(['男','女'][parseInt(Math.random() * 2, 10)]);
     line.push([17,18,19,20,21,22,23,24][parseInt(Math.random() * 8, 10)]);
-    
+
     var city = pcity[parseInt(Math.random() * 251, 10)];
     line.push(city[0]);
     line.push(city[1]);
     
-    var zy = require('./yuan')();
+    var zy = mtd._getRandonXueYuan();
     line.push(zy[0]);
     line.push(zy[1]);
     
@@ -49,7 +44,7 @@ module.exports = function(){
     
     var biye = "";
     
-    if(xueli<=3){
+    if(xueli <= 3){
       biye = parseInt(ruxue, 10) + 4;
     }else{
       biye = parseInt(ruxue, 10) + 3;
