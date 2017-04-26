@@ -1,17 +1,11 @@
 #!/usr/local/bin/node
-var fw = require('./file')(require('fs'));
-var header = require('./header')["学生社团表"];
-var file = '学生社团表.txt';
 
-module.exports = function(){
-  
-  //fw.unlink(file);
+module.exports = function(fw, data, mtd){
+  var file = '学生社团表.txt';
+  var header = data["表头"]["学生社团表"];
   fw.write(file);
-
   fw.append(file, header.join(','));
-
   var student = global.student;
-  
   var str = "";
   for(i in student){
     var time = parseInt(Math.random() * 10, 10);
@@ -27,7 +21,6 @@ module.exports = function(){
     }
   }
   fw.append(file, str);
-
 };
 
 

@@ -1,25 +1,15 @@
 #!/usr/local/bin/node
-var fw = require('./file')(require('fs'));
-var header = require('./header')["教师信息表"];
-var names = require('./names')["教师"];
-var pcity = require('./province');
-var file = '教师信息表.txt';
 
-module.exports = function(){
-  
-  //fw.unlink(file);
+module.exports = function(fw, data, mtd){
+  var file = '教师信息表.txt';
+  var header = data["表头"]["教师信息表"];
+  var names = data["姓名"]["教师"];
+  var pcity = data["省市"];
   fw.write(file);
-
   fw.append(file, header.join(','));
-
-  require('./kecheng');
   global.teacher = {};
-  var i, kas;
   
-  var km = require('./km');
-  var yx = require('./yx');
-  
-  kas = require('./kas')();
+  var i, kas = mtd._getAllKeCheng();
   var str = "";
   for(i = 0; i < 38; i++){
     var line = [];
@@ -31,7 +21,7 @@ module.exports = function(){
     var city = pcity[parseInt(Math.random() * 251, 10)];
     line.push(city[0]);
     line.push(city[1]);
-    var yxk = require('./method')(km, yx, kas[i]);
+    var yxk = mtd._getYuanZhuanYeByKecheng(kas[i]);
     line.push(yxk[0]);
     line.push(yxk[1]);
     line.push(yxk[2]);

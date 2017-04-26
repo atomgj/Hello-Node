@@ -1,16 +1,12 @@
 #!/usr/local/bin/node
-var fw = require('./file')(require('fs'));
-var header = require('./header')["基建信息表"];
-var file = '基建信息表.txt';
 
-module.exports = function(){
-  
-  //fw.unlink(file);
+module.exports = function(fw, data, mtd){
+  var file = '基建信息表.txt';
+  var header = data["表头"]["基建信息表"];
   fw.write(file);
-
   fw.append(file, header.join(','));
-var str="";
-    for(var i = 0; i < 10; i++){
+  var str="";
+  for(var i = 0; i < 10; i++){
       var line = [];
       line.push("ND-XSJL-0K1-"+(i+100));
       line.push((i+10)+"号楼建设项目");
@@ -21,10 +17,8 @@ var str="";
       line.push(parseInt(Math.random() * 1000000, 10));
       line.push(parseInt(Math.random() * 1000000, 10));
       line.push(['学生宿舍','教师宿舍','食堂','体育馆'][parseInt(Math.random() * 4, 10)]);
-    
       str += line.join(',')+'\n';
-    }
-
+  }
   fw.append(file, str);
 };
 

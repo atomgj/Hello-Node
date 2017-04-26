@@ -1,19 +1,13 @@
 #!/usr/local/bin/node
-var fw = require('./file')(require('fs'));
-var header = require('./header')["学生上网表"];
-var file = '学生上网表.txt';
 
-module.exports = function(){
-  
-  //fw.unlink(file);
+module.exports = function(fw, data, mtd){
+  var header = data["表头"]["学生上网表"];
+  var file = '学生上网表.txt';
   fw.write(file);
-
   fw.append(file, header.join(','));
-
   var student = global.student;
   var str = "";
   for(i in student){
-    
     var time = parseInt(Math.random() * 10, 10);
     for(var j = 0; j < time; j++){
       var line = [];

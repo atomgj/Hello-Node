@@ -1,21 +1,12 @@
 #!/usr/local/bin/node
-var fw = require('./file')(require('fs'));
-var header = require('./header')["学生出勤表"];
-var file = '学生出勤表.txt';
 
-module.exports = function(){
-  
-  //fw.unlink(file);
+module.exports = function(fw, data, mtd){
+  var file = '学生出勤表.txt';
+  var header = data["表头"]["学生出勤表"];
   fw.write(file);
-
   fw.append(file, header.join(','));
-
   var student = global.student;
-  
-  var km = require('./km');
-  var yx = require('./yx');
-  
-  kas = require('./kas')();
+  var kas = mtd._getAllKeCheng();
   var str = "";
   for(i in student){
     var idx = parseInt(Math.random() * 10, 10);

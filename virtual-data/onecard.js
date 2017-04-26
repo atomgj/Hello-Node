@@ -1,17 +1,12 @@
 #!/usr/local/bin/node
-var fw = require('./file')(require('fs'));
-var header = require('./header')["学生一卡通"];
-var file = '学生一卡通.txt';
 
-module.exports = function(){
+module.exports = function(fw, data, mtd){
   
-  //fw.unlink(file);
+  var file = '学生一卡通.txt';
+  var header = data["表头"]["学生一卡通"];
   fw.write(file);
-
   fw.append(file, header.join(','));
-
   var student = global.student;
-  
   for(i in student){
     
     var time = parseInt(Math.random() * 20, 10);

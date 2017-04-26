@@ -1,15 +1,10 @@
 #!/usr/local/bin/node
-var fw = require('./file')(require('fs'));
-var header = require('./header')["学生通讯表"];
-var file = '学生通讯表.txt';
-
-module.exports = function(){
+module.exports = function(fw, data, mtd){
   
-  //fw.unlink(file);
+  var header = data["表头"]["学生通讯表"];
+  var file = '学生通讯表.txt';
   fw.write(file);
-
   fw.append(file, header.join(','));
-
   var student = global.student;
   var str = "";
   for(i in student){

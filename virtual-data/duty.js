@@ -1,26 +1,13 @@
 #!/usr/local/bin/node
 
 module.exports = function(fw, data, mtd){
-  
   var file = '教师排班表.txt';
   var header = data["表头"]["教师排班表"];
-  var names = data["姓名"]["教师"];
-  var pcity = data["省市"];
-  
-  //fw.unlink(file);
   fw.write(file);
-
   fw.append(file, header.join(','));
-
-  require('./kecheng');
   var teacher = global.teacher;
-  var i, kas;
+  var i;
   var str = "";
-  var km = require('./km');
-  var yx = require('./yx');
-  
-  kas = require('./kas')();
-  console.log(teacher);
   for(i in teacher){
     var line = [];
     line.push(teacher[i][0]);   //工号

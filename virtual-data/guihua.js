@@ -1,20 +1,14 @@
 #!/usr/local/bin/node
-var fw = require('./file')(require('fs'));
-var header = require('./header')["学科规划表"];
-var file = '学科规划表.txt';
 
-var km = require('./km');
-var yx = require('./yx');
 
-var kas = require('./kas')();
-
-module.exports = function(){
+module.exports = function(fw, data, mtd){
   
-  //fw.unlink(file);
+  var file = '学科规划表.txt';
+  var header = data["表头"]["学科规划表"];
+  var kas = mtd._getAllKeCheng();
   fw.write(file);
-
   fw.append(file, header.join(','));
-var str = "";
+  var str = "";
   for(var j = 0; j < kas.length; j++){
     var line = [];
     line.push(kas[j]);
