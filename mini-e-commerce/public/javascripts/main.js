@@ -1,4 +1,4 @@
-var register,login,addcommodity;
+var register,login,addcommodity,addCart, delCart;
 
 register = function(){
 	var data  = {};
@@ -58,4 +58,38 @@ addcommodity = function(){
 			location.href='addcommodity';
 		}
 	});
+};
+
+addCart = function(_id){
+	var data = {};
+	data._id = _id;
+	$.ajax({
+		url: 'addCart',
+		type: 'POST',
+		data: data,
+		success: function(data, status){
+			location.href = "cart";
+		},
+		error: function(data, status){
+			location.href = 'home'
+		}
+	});	
+};
+
+delCart = function(_id){
+	var data = {
+		_id: _id
+	};
+	$.ajax({
+		url: 'delCart',
+		type: 'POST',
+		data: data,
+		success: function(data, status){
+			location.href  = 'cart';
+		},
+		error: function(data,status){
+			location.href = 'cart';
+		}
+	});
+
 };

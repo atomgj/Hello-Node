@@ -1,0 +1,29 @@
+<link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+
+<div>
+  <ul>
+	<li class="header">
+		<div class="li-checkbox"><input type="checkbox" name="cbAll"><span>全选</span><div/>
+		<div class="li-image"></div>
+		<div class="li-name">商品名称</div>
+		<div class="li-price">商品价格</div>
+		<div class="li-quantity">数量</div>
+		<div class="li-del">操作</div>
+	</li>
+	<%for(var i in carts){if(!carts[i].cId)continue%>
+	<li>
+		<div class="li-checkbox"><input type="checkbox" name="cbItem"></div>
+		<div class="li-image"><a><img style="width:80px;height:80px;" src="images/cm.png"></a></div>
+		<div class="li-name"><%=carts[i].cName%></div>
+		<div class="li-price"><%=carts[i].cPrice%></div>
+		<div class="li-quantity"><input type="text" value="<%=carts[i].cQuantity%>"/></div>
+		<div class="li-del"><a onclick="delCart('<%=carts[i]._id%>')">删除</a></div>
+	</li>
+	<%}%>
+  </ul>
+	
+</div>
+
+<script src="/javascripts/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="/javascripts/bootstrap.min.js" type="text/javascript"></script>
+<script src="/javascripts/main.js"></script>

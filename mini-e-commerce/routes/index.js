@@ -3,4 +3,5 @@ module.exports = function(app){
 	require('./register')(app);
 	require('./addcommodity')(app);
 	require('./home')(app);
+	require('./cart')(app);
 };
