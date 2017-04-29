@@ -1,20 +1,21 @@
 <html>
 <head>
+<script src='jquery.js'></script>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-        window.onload = function(){
-            var socket = io.connect('/');
-            socket.on('connect',function(){
-		socket.send('hello world'); 
-               document.write('连接成功!');
-            });
-
-	    socket.on('message', function(data){
-		document.write(data);
-            });
-        };
+	function send(){
+		var m = $('#message').text();
+		socket.send(m);
+		socket.on('message', function(data){
+			$('#rec').text(data);
+		})
+	}
     </script>
 </head>
 <body>
+
+<div onclick="send()" id="message">1</div>
+
+<div id="rec"></div>
 </body>
 </html>

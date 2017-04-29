@@ -20,8 +20,7 @@ io.on('connection', function(socket){
 
 	socket.send('welcome from server');
 	socket.on('message', function(data){
-		console.log('message from client');
-		console.log(data);
+		socket.send('i already got the message :' + data);	
 	})
 
 });
