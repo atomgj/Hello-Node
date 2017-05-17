@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies" : {
-    "mysql":"latest"
+    "mysql":"latest",
+    "jquery" : "2.1.1"
   }
 }
