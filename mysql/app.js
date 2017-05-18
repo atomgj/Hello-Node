@@ -12,6 +12,10 @@ db = mysql.createConnection({
 
 
 server = http.createServer(function(request, response){
+    response.writeHead(200, {
+        "Content-Type" : "text/plain",
+        "Access-Control-Allow-Origin": "*"
+    });
     controller(request, response);
 });
 
@@ -26,28 +30,14 @@ controller = function(request, response){
 route = function(obj, response){
     if('/commodity' == obj.pathname){
        db.query('select 1 as commodity;', function(error, rows, fields){
-            response.writeHead(200, {
-                "Content-Type" : "text/plain",
-                "Access-Control-Allow-Origin": "*"
-       });
-
             response.end(JSON.stringify(rows));
         });
     }else if('/cart' == obj.pathname){
         db.query('select 2 as cart;', function(error, rows, fields){
-            response.writeHead(200, {
-                'Content-Type' : 'text/plain',
-                'Access-Control-Allow-Origin' : '*'
-            });
-
             response.end(JSON.stringify(rows));
         });
     }else{
         db.query('select 3 as list;', function(error, rows, fields){
-            response.writeHead(200, {
-                'Content-Type' : 'text/plain'
-            });
-
             response.end(JSON.stringify(rows));
         });
     }
