@@ -1,0 +1,15 @@
+{
+  "name": "mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies" : {
+    "mysql":"latest",
+    "jquery" : "2.1.1"
+  }
+}
