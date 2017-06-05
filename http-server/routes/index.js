@@ -1,4 +1,4 @@
-module.exports = function(obj){
+function urlRoute(obj){
 
    var getCart = function(){
        console.log(obj.url);
@@ -21,8 +21,11 @@ module.exports = function(obj){
    var self = this;
 
    var route = function(){
-      console.log(urlMap[obj.url]())
+      urlMap[obj.url]();
    };
    self.route = route;
    return self;
-};
+}
+
+
+module.exports = urlRoute;

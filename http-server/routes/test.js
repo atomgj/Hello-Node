@@ -1,2 +1,2 @@
-var idx = require('./index')({url:'/cart'});
+var idx = require('./index')({url:'/list'});
 idx.route();
