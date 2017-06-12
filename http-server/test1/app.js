@@ -18,7 +18,7 @@ db = mysql.createConnection({
 server = http.createServer(function(request, response){
 
     response.writeHead(200, {
-       'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Origin' : '*',
         'Content-Type' : 'text/plain'
     });
 
@@ -29,11 +29,11 @@ server = http.createServer(function(request, response){
 
     if(request.method.toUpperCase() == 'POST'){
         postData = "";
-        request.addListener('data', function(data){
+        request.on('data', function(data){
            postData += data;
         });
 
-        request.addListener('end', function(){
+        request.on('end', function(){
             condition = qystring.parse(path.query);
             appContext.setCondition(condition);
             controller.route(path, appContext);

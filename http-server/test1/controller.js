@@ -40,7 +40,6 @@ self.route = function(path, appContext){
     }else{
         response.end("{error: '404'}");
     }
-
 };
 
 module.exports = self;
