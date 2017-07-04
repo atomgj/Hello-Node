@@ -30,5 +30,15 @@ module.exports = function(fs){
         }
       });
   };
+  
+  fw.read = function(fileName){
+     fs.readFile(fileName,'utf-8',function(err,data){  
+      if(err){  
+          console.log(err);  
+      }else{  
+          console.log(data);  
+      }  
+    });  
+  }
   return fw;
 }
